@@ -51,12 +51,19 @@
     <p>Put anything and I will compile it as a list</p>
     <input type="text" id="newAlert" placeholder="New Alert Location">
     <button onclick="AlertCall()">Alert Locations</button>
-    
+    <h3>Lets Toastify</h3>
+    <p>We are gonna make a toast list</p>
+    <input type="text" id="newToast" placeholder="New Toast Item">
+    <button onclick="ToastCall()">Toast Locations</button>
+    <ol id="ToastList">
+        
 
+    </ol>
 </body>
 <script>
     let LocationList = [];
     let AlertList = [];
+    let ToastList = [];
     LocationList.push("Nashville, TN");
     LocationList.push("Chattanooga, TN");
     document.getElementById("LocationList").innerHTML = "<li>" + LocationList.join("</li><li>") + "</li>";
@@ -73,8 +80,22 @@
         AlertList.push(newAlert);
         alert("Alert List:\n" + AlertList.map((loc, index) => `${index + 1}. ${loc}`).join("\n"));
     }
+    function ToastCall() {
+        let newToast = document.getElementById("newToast").value;
+        ToastList.push(newToast);
+        document.getElementById("ToastList").innerHTML = "<button onclick=\"closeButton()\" class=\"XButton\">X</button><li>" + ToastList.join("</li><li>") + "</li>";
 
-     
+        var toast = document.getElementById("ToastList");
+
+        toast.className = "show";
+
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+    }
+
+    function closeButton() {
+        var toast = document.getElementById("ToastList");
+        toast.className = toast.className.replace("show", "");
+    }
 
 
 </script>
