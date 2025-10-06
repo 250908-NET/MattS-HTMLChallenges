@@ -40,14 +40,42 @@
     </div>
     
     <h2>Our Locations</h2>
-    <p>set up</p>
-    <h2>Upcoming Classes</h2>
-    <p>Hi</p>
-    <h2>Sign Up!</h2>
+    <ul id="LocationList">
+        
+    </ul>
+
+    <input type="text" id="newLocation" placeholder="New Location">
+    <button onclick="AddToList()">Add Location</button>
+    
+    <h2>The Alert List</h2>
+    <p>Put anything and I will compile it as a list</p>
+    <input type="text" id="newAlert" placeholder="New Alert Location">
+    <button onclick="AlertCall()">Alert Locations</button>
     
 
 </body>
 <script>
+    let LocationList = [];
+    let AlertList = [];
+    LocationList.push("Nashville, TN");
+    LocationList.push("Chattanooga, TN");
+    document.getElementById("LocationList").innerHTML = "<li>" + LocationList.join("</li><li>") + "</li>";
+
+    function AddToList() {
+        let newLocation = document.getElementById("newLocation").value;
+        LocationList.push(newLocation);
+        document.getElementById("LocationList").innerHTML = "<li>" + LocationList.join("</li><li>") + "</li>";
+
+    }
+
+    function AlertCall() {
+        let newAlert = document.getElementById("newAlert").value;
+        AlertList.push(newAlert);
+        alert("Alert List:\n" + AlertList.map((loc, index) => `${index + 1}. ${loc}`).join("\n"));
+    }
+
+     
+
 
 </script>
 
