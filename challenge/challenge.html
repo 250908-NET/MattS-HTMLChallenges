@@ -40,7 +40,13 @@
     </div>
     
     <h2>Our Locations</h2>
-    <p>set up</p>
+    <ul id="LocationList">
+        
+    </ul>
+
+    <input type="text" id="newLocation" placeholder="New Location">
+    <button onclick="AddToList()">Add Location</button>
+    
     <h2>Upcoming Classes</h2>
     <p>Hi</p>
     <h2>Sign Up!</h2>
@@ -48,6 +54,18 @@
 
 </body>
 <script>
+    let LocationList = [];
+    LocationList.push("Nashville, TN");
+    LocationList.push("Chattanooga, TN");
+    document.getElementById("LocationList").innerHTML = "<li>" + LocationList.join("</li><li>") + "</li>";
+
+    function AddToList() {
+        let newLocation = document.getElementById("newLocation").value;
+        LocationList.push(newLocation);
+        document.getElementById("LocationList").innerHTML = "<li>" + LocationList.join("</li><li>") + "</li>";
+    }
+     
+
 
 </script>
 
