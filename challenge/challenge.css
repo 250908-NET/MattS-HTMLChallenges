@@ -1,0 +1,34 @@
+.AboutMe
+{
+    width: 800px;
+    height: 1000px;
+    display: grid;
+    padding: 50px;
+    margin: 20px;
+
+
+}
+.ImageBorder {
+    width: 30%;
+    height: 300px;
+
+}
+.AboutMeSection 
+{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin: 20px;
+    font-size: 20px;
+    text-align: justify;
+
+}
+.resize {
+    width: 100%;
+    height: auto;
+    border: black 5px solid;
+}
+.Base-Container 
+{
+
+}
