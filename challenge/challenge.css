@@ -83,6 +83,16 @@
     float: right;
     color: white;
 }
+.XButtonBlack 
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    float: right;
+    color: black;
+}
 .Base-Container 
 {
 
