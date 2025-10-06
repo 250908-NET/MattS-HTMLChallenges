@@ -63,7 +63,14 @@
         let newLocation = document.getElementById("newLocation").value;
         LocationList.push(newLocation);
         document.getElementById("LocationList").innerHTML = "<li>" + LocationList.join("</li><li>") + "</li>";
+        AlertList();
+
     }
+
+    function AlertList() {
+        alert("Current Locations:\n" + LocationList.map((loc, index) => `${index + 1}. ${loc}`).join("\n"));
+    }
+
      
 
 
