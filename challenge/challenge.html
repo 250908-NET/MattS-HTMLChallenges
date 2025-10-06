@@ -59,11 +59,24 @@
         
 
     </ol>
+    <h1>DA SHOP</h1>
+
+    <p>Welcome to Da Shop, we have many items for sale</p>
+
+    <input type="text" id="newShopItem" placeholder="New Shop Item">
+    <button onclick="AddToShop(document.getElementById('newShopItem').value)">Add Item</button>
+    <ol id="ShopList">
+        
+    </ol>
+
+
+
 </body>
 <script>
     let LocationList = [];
     let AlertList = [];
     let ToastList = [];
+    let shopList = [];
     LocationList.push("Nashville, TN");
     LocationList.push("Chattanooga, TN");
     document.getElementById("LocationList").innerHTML = "<li>" + LocationList.join("</li><li>") + "</li>";
@@ -96,6 +109,36 @@
         var toast = document.getElementById("ToastList");
         toast.className = toast.className.replace("show", "");
     }
+
+    function AddToShop(item)
+    {
+        shopList.push({name: item,checked: false});
+
+        console.log(shopList);
+
+        updateShopList();
+    }
+    function updateShopList()
+    {
+        document.getElementById("ShopList").innerHTML = shopList.map((item, index) => 
+        `<li>
+            <input type="checkbox" ${item.checked ? 'checked' : ''} onclick="toggleCheckbox(${index})">
+            ${item.name}
+            <button onclick="removeFromShop(${index})">Remove</button>
+        </li>`).join("");
+    }
+    function toggleCheckbox(index)
+    {
+        shopList[index].checked = !shopList[index].checked;
+        console.log(shopList);
+    }
+    function removeFromShop(index)
+    {
+        shopList.splice(index,1);
+        updateShopList();
+
+    }
+    
 
 
 </script>
